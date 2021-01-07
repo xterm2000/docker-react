@@ -1,6 +1,7 @@
 version: '3'
 services: 
   web: 
+    container_name: "web-app"
     build: 
       #separate build context (directory) and the compose file
       context: . 
@@ -11,6 +12,7 @@ services:
       - /app/node_modules
       - ./:/app
   tests:
+    container_name: "test-app"
     build: 
       #separate build context (directory) and the compose file
       context: . 

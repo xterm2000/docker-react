@@ -1,11 +1,14 @@
-FROM node:slim
+#multistep build phases
 
-WORKDIR /app
-
-COPY ./package.json ./
-
+#named builder FROM node:alpine as builder
+#step 1 
+FROM node:alpine
+WORKDIR '/app'
+COPY package.json .
 RUN npm install
+COPY . .
+RUN npm run build
 
-COPY ./ ./ 
-
-CMD ["npm", "run", "start"]
+#step 2
+FROM nginx
+COPY --from=0 /app/build /usr/share/nginx/html
