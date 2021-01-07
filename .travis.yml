@@ -21,7 +21,7 @@ deploy:
   env: "Docker-env"
   # S3 bucket - auto created for beantalk
   bucket_name: "elasticbeanstalk-us-east-2-384174087479"
-  #must be equal to app name 
+  #must be equal to app name ss
   bucket_path: "docker"
 
   #deploy only branch master
