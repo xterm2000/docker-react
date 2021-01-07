@@ -2,10 +2,11 @@ FROM node:alpine
 
 WORKDIR /app
 
+#copy package file first 
 COPY ./package.json ./
-
+#install dependencies 
 RUN npm install
-
+#copy the rest 
 COPY ./ ./ 
-
+#run the final command upon start
 CMD ["npm", "run", "start"]
