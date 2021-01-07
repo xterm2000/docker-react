@@ -18,7 +18,7 @@ deploy:
   region: "us-east-2"
   ## ap[p and env must match AWS names]
   app: "docker"
-  env: "Docker-env"
+  env: "Docker-env-2"
   # S3 bucket - auto created for beantalk
   bucket_name: "elasticbeanstalk-us-east-2-384174087479"
   #must be equal to app name ss

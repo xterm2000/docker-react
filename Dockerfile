@@ -4,7 +4,7 @@
 # named builder 
 # FROM node:alpine as builder
 
-#step 1 
+#step 0
 FROM node:alpine
 
 #set working dir on container 
@@ -22,7 +22,7 @@ RUN npm run build
 
 # /app/build <-- all the files
 
-#step 2
+#step 1
 
 #named 
 # COPY --from=builder 
