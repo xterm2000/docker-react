@@ -8,3 +8,28 @@ before_install:
 
 script:
   - docker run -e CI=true my-app npm run test -- --coverage
+
+deploy:
+  #exact name 
+  provider: elasticbeanstalk
+  # from the environment link 
+  # http://docker-env.eba-jmseb4q3.us-east-2.elasticbeanstalk.com/
+  region: "us-east-2"
+  ## ap[p and env must match AWS names]
+  app: "docker"
+  env: "Docker-env"
+  # S3 bucket - auto created for beantalk
+  bucket_name: "elasticbeanstalk-us-east-2-384174087479"
+  #must be equal to app name 
+  bucket_path: "docker"
+
+  #deploy only branch master
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
+
+ # access_key_id: $AWS_ACCESS_KEY
+ # secret_access_key: $AWS_SECRET_KEY 
