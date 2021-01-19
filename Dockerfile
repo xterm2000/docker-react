@@ -21,6 +21,7 @@ RUN npm run build
 
 
 # /app/build <-- all the files
+# so in step 2 only they are copied to the image 
 
 #step 1
 
